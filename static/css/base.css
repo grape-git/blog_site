@@ -59,7 +59,7 @@ z-index: 95;
     top: 27px;
     width: 15px;
     height: 15px;
-    background: url('./assets/close.png');
+    background: url('../assets/close.png');
     background-size: 100% auto;
     box-sizing: border-box;
     text-align: center;
@@ -133,12 +133,20 @@ z-index: 95;
   width: 15px;
 }
 
+.menuClose img {
+    display: block;
+}
+
 /* footer */
 .footer {
   margin: 15px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.footer-total {
+    padding-left: 27px;
 }
 
 .footer-title {
