@@ -1,16 +1,149 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="banner">
+    <section class="banner">
         <div class="banner-total">
-            <h2 class="banner-title">
-                <a href="">Grape°</a>
-            </h2>
-            <p class="banner-content">
-                Welcome !<br/>
-                This is my first Website,
-                my personal blog site.
+          <div class="banner-image">
+            <img src="/static/assets/welcome.svg" alt="">
+          </div>
+          <div class="banner-content">
+            <p>
+              Welcome !<br>
+              This is my first website and
+              my personal blog site.
             </p>
+          </div>
         </div>
-    </div>
+    </section>
+
+
+    <section class="card">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 md-4">
+            <h2 class="list-title">Post</h2>
+              <div class="card-total">
+              {% if study_post %}
+              {% for post in study_post %}
+              <a href="{% url 'studyapp:studydetail' post.pk %}">
+                  <div class="card-list">
+                      <div class="card-text">
+                        <div class="post-content-img">
+                            <img src="{{ post.content_image.url }}" alt="">
+                            <h2>{{ post.post_title }}</h2>
+                        </div>
+                        <div class="card-header">
+                          <img src="{{ post.profile_image.url }}" alt="" class="profile-image">
+                          <div class="post-header">
+                            <strong class="post-username">{{ post.user }}</strong>
+                            <p class="post-date">{{ post.updated_date|date:'Y-m-d' }}</p>
+                          </div>
+                        </div>
+                        <div class="post-content">
+                          <p>{{ post.sub_content | safe | truncatechars:150 }}</p>
+                        </div>
+                      </div>
+                  </div>
+              </a>
+              {% endfor %}
+              {% else %}
+                  <h1 style="font-size:40px; font-weight: 200; margin: 50px 0;">There are no posts yet.</h1>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="project">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <h2 class="list-title">Project</h2>
+            <div class="project-content">
+              <div class="slide_wrapper">
+                  <ul class="slides">
+                  {% if project_post %}
+                  {% for project in project_post %}
+                      <a href="{% url 'projectapp:projectdetail' project.pk %}">
+                        <li class="slide-list">
+                            <img src="{{ project.content_image.url }}" alt="" class="slide-image">
+                            <h2 class="slide-title">{{ project.title }}</h2>
+                            <p class="slide-date">{{ project.created_date|date:'Y-m-d' }}</p>
+                        </li>
+                      </a>
+                  {% endfor %}
+                  {% else %}
+                  <h1 style="font-size:40px; font-weight: 200; margin: 50px 0 50px 350px; text-align:center;">
+                      There are no project yet.</h1>
+                  {% endif %}
+                </ul>
+              </div>
+              <div class="controls">
+                <div class="prev"><i class="fas fa-arrow-left"></i></div>
+                <div class="next"><i class="fas fa-arrow-right"></i></div>
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class=charts-total>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="chart-title">
+              <h1>Language</h1>
+            </div>
+            <div class="charts">
+              <div class="chart">
+                <h2 data-num="20">0</h2>
+                <svg>
+                  <circle cx="110" cy="110" r="100"></circle>
+                </svg>
+                <p>HTML</p>
+              </div>
+              <div class="chart">
+                <h2 data-num="60">0</h2>
+                <svg>
+                  <circle cx="110" cy="110" r="100" class="chart-line"></circle>
+                </svg>
+                <p>HTML</p>
+              </div>
+              <div class="chart">
+                <h2 data-num="80">0</h2>
+                <svg>
+                  <circle cx="110" cy="110" r="100" class="chart-line"></circle>
+                </svg>
+                <p>HTML</p>
+              </div>
+              <div class="chart">
+                <h2 data-num="50">0</h2>
+                <svg>
+                  <circle cx="110" cy="110" r="100"></circle>
+                </svg>
+                <p>HTML</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-image">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-image-total">
+              <img src="/static/assets/footer_total.svg" alt="" class="main-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/static/js/charts.js"></script>
+    <script src="/static/js/slide.js"></script>
 {% endblock %}

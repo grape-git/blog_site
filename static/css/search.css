@@ -1,0 +1,62 @@
+
+
+.search-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-form i {
+ color: #6c63ff;
+ font-size: 30px;
+}
+
+
+.search-text {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #222;
+  margin: 0 10px;
+}
+
+.search-button {
+    width:50px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 10px 10px;
+}
+
+/* Desk Top */
+@media screen and (min-width: 768px) {
+    .search-form i {
+     font-size: 50px;
+    }
+
+
+    .search-text {
+      width: 400px;
+      height: 50px;
+      margin: 0 30px;
+    }
+
+    .search-button {
+      width: 80px;
+      height: 40px;
+      font-size: 16px;
+    }
+}

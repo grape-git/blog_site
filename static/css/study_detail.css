@@ -1,0 +1,57 @@
+/* banner css */
+.detail-banner {
+  border-bottom: 1px solid #c7c7c7;
+  box-shadow: 3px 3px 3px #c7c7c7,
+               -4px -4px 8px #ffffff;
+}
+
+.content-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 60px 0 60px;
+}
+
+
+.content-image img {
+  height: 300px;
+  width: 400px;
+  margin-bottom: 80px;
+}
+
+
+/* Content */
+.detail-content-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-post {
+  border-radius: 20px;
+  position: relative;
+  bottom: 70px;
+  background-color: #fff;
+  border: 1px solid #bbbbbb;
+  min-height: 800px;
+  width: 90%;
+}
+
+.detail-content-header {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.detail-content-header h1 {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.detail-content-header p {
+  margin-bottom: 20px;
+  color: #bbbbbb;
+}
+
+.detail-content-content {
+  padding: 10px 20px 30px 20px;
+}

@@ -1,0 +1,29 @@
+{% block content%}
+    <form action="{% url 'commentapp:create' %}" method="POST">
+      {% csrf_token %}
+      <div class="container">
+        <div class="row" style="display:flex; flex-direction: column; align-items: center;">
+          <img src="/static/assets/comment.png" alt="" class="comment-image">
+          <div class="comment-total">
+            <div class="comment-box">
+              <div class="col-12 md-6">
+                <div class="comment-form">
+                  <input id="writer" type="text" name="writer" placeholder="이름 or 닉네임" class="comment_name">
+                  <input id="email" type="email" name="email" placeholder="이메일" class="comment_email">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="comment-content">
+                  <textarea name="comment_text" id="comment_text" rows="10" placeholder="댓글을 입력해주세요." class="test32"
+                  onKeyup="var m=50;var s=this.scrollHeight;if(s>=m)this.style.pixelHeight=s+4"></textarea>
+                </div>
+              </div>
+              <input type="submit" class="comment-btn" value="Create">
+              <input type="hidden" name="post_pk" value="{{ post.pk }}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+{% endblock %}
+

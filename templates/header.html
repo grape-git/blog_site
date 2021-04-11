@@ -12,26 +12,27 @@
         <nav class="menu">
           <a href="javascript:;" class="menuClose">X</a>
           <ul class="depth_application" id ="menuList">
-              <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-              <li><a href="#"><i class="fas fa-user-circle"></i>Profile</a></li>
-              <li><a href="#"><i class="fas fa-lightbulb"></i>Project</a></li>
-              <li><a href="#"><i class="fas fa-book"></i>Study</a></li>
+              <li><a href="{% url 'mainapp:hello_main' %}"><i class="fas fa-home"></i>Home</a></li>
+              <li><a href="{% url 'profileapp:projectlist' %}"><i class="fas fa-user-circle"></i>Profile</a></li>
+              <li><a href="{% url 'projectapp:projectview' %}"><i class="fas fa-lightbulb"></i>Project</a></li>
+              <li><a href="{% url 'studyapp:studyview' %}"><i class="fas fa-book"></i>Study</a></li>
           </ul>
           </nav>
         </aside>
         </div>
         <ul class="nav-menu">
-          <li><a href="#"><img src="../static/assets/user01.png" alt=""></a></li>
-          <li><a href="#"><img src="../static/assets/project01.png" alt=""></a></li>
-          <li><a href="#"><img src="../static/assets/book02.png" alt=""></a></li>
+          <li><a href="{% url 'mainapp:hello_main' %}"><img src="/static/assets/grape02.png" alt="" class="grape"/></a></li>
+          <li><a href="{% url 'profileapp:projectlist' %}"><img src="/static/assets/user01.png" alt=""/></a></li>
+          <li><a href="{% url 'projectapp:projectview' %}"><img src="/static/assets/project01.png" alt=""/></a></li>
+          <li><a href="{% url 'studyapp:studyview' %}"><img src="/static/assets/book02.png" alt=""/></a></li>
+          <li><a href="/admin/"><i class="fas fa-user-cog"></i></a></li>
         </ul>
         <div class="nav-search">
-          <i class="fas fa-search"></i>
+            <a href="{% url 'searchapp:search' %}"><i class="fas fa-search"></i></a>
         </div>
     </nav>
     <script layout:fragment="pageScript" th:inline="javascript">
         $(function() {
-
           $('#menuBtn').on('click', function(){
             $('.sideBar').toggleClass('open');
             $('.menu').toggleClass('active');
@@ -53,7 +54,7 @@
 
           $(".menu").click(function (e) {
           e.stopPropagation();
-        });
+          });
 
         });
     </script>

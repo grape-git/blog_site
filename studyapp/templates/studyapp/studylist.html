@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="study-list-banner">
+        {% for target in  target_study_list %}
+        <div class="study-list-banner-total">
+          <img src="{{ target.study_image.url }}" alt="" class="study-list-image">
+          <h2 class="study-list-banner-title">
+              {{ target.study_title }}
+          </h2>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="card">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 md-4">
+            <h2 class="list-title">Post</h2>
+              <div class="card-total">
+              {% if target_list %}
+              {% for target_study in target_list %}
+              <a href="{% url 'studyapp:studydetail' target_study.pk %}">
+                  <div class="card-list">
+                      <div class="card-text">
+                        <div class="post-content-img">
+                            <img src="{{ target_study.content_image.url }}" alt="">
+                            <h2>{{ target_study.post_title }}</h2>
+                        </div>
+                        <div class="card-header">
+                          <img src="{{ target_study.profile_image.url }}" alt="" class="profile-image">
+                          <div class="post-header">
+                            <strong class="post-username">{{ target_study.user }}</strong>
+                            <p class="post-date">{{ target_study.updated_date|date:'Y-m-d' }}</p>
+                          </div>
+                        </div>
+                        <div class="post-content">
+                          <p>{{ target_study.sub_content | truncatechars:150 | safe }}</p>
+                        </div>
+                      </div>
+                  </div>
+              </a>
+              {% endfor %}
+              {% else %}
+                <h1 style="font-size:40px; font-weight: 200; margin: 200px 0; text-align:center;">
+                      There are no Post yet.</h1>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    {% if is_paginated %}
+      <nav aria-label="Page navigation example">
+          <div class="page-total">
+            <ul class="pagination">
+              {% if page_obj.has_previous %}
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                    <li>
+                        <i class="fas fa-chevron-left"></i>
+                    </li>
+                </a>
+              {% else %}
+                <a href="#" class="page-link">
+                    <li class="page-item">
+                        <i class="fas fa-chevron-left"></i>
+                    </li>
+                </a>
+              {% endif %}
+
+              {% for page in page_range %}
+                <a class="page-link" href="?page={{ page }}">
+                <li class="page-item" {% if page == page_obj.number %}class="active"{% endif %}>
+                    {{ page }}
+                </li>
+                </a>
+              {% endfor %}
+
+              {% if page_obj.has_next %}
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                    <li class="page-item">
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+                </a>
+              {% else %}
+                <a class="page-link" href="#">
+                    <li class="page-item" {% if not page_obj.has_next %}class="disabled"{% endif %}>
+                        <i class="fas fa-chevron-right"></i>
+                    </li>
+                </a>
+              {% endif %}
+            </ul>
+          </div>
+      </nav>
+    {% endif %}
+{% endblock %}

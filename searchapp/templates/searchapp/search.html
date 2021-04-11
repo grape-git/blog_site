@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="." method="POST">
+      {% csrf_token %}
+      <div class="container">
+        <div class="row" style="display:flex; flex-direction: column; align-items: center;">
+          <div class="search-total">
+              <div class="col-12 md-6">
+                <div class="search-form">
+                    <i class="fas fa-search" style="display: flex;">
+                        <input id="text" type="text" name="text" placeholder="Search Post" class="search-text">
+                    </i>
+                    <input type="submit" value="Search" class="search-button">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    <section class="card">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 md-4">
+            {% if object_list %}
+            <h2 class="list-title">Post</h2>
+              <div class="card-total">
+              {% for post in object_list %}
+              <a href="{% url 'studyapp:studydetail' post.pk %}">
+              <div class="card-list">
+                  <div class="card-text">
+                    <div class="post-content-img">
+                        <img src="{{ post.content_image.url }}" alt="">
+                        <h2>{{ post.post_title }}</h2>
+                    </div>
+                    <div class="card-header">
+                      <img src="{{ post.profile_image.url }}" alt="" class="profile-image">
+                      <div class="post-header">
+                        <strong class="post-username">{{ post.user }}</strong>
+                        <p class="post-date">{{ post.updated_date }}</p>
+                      </div>
+                    </div>
+                    <div class="post-content">
+                      <p>{{ post.sub_content | truncatechars:150 | safe }}</p>
+                    </div>
+                  </div>
+              </div>
+              </a>
+              {% endfor %}
+              {% elif search_term  %}
+                <h1 style="font-size:40px; font-weight: 200; margin: 200px 0; text-align:center;">
+                      Search Word({{ search_term }}) Not Found</h1>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="detail-banner">
+              <div class="content-image">
+                <img src="/static/assets/img03.png" alt="">
+              </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <div class="detail-content-total">
+                <div class="detail-post">
+                {% if target_study_detail %}
+                    <div class="detail-content-header">
+                        <h1>{{ target_study_detail.post_title }}</h1>
+                        <p>{{ target_study_detail.updated_date }}</p>
+                    </div>
+                    <div class="detail-content-content">
+                        <p>{{ target_study_detail.post_content | safe  }}</p>
+                </div>
+                {% endif %}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% for comment in target_study_detail.comment.all %}
+        {% include 'commentapp/detail.html' with comment=comment %}
+    {% endfor %}
+
+    {% include 'commentapp/create.html' with post=target_study_detail %}
+{% endblock %}

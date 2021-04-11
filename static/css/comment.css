@@ -1,0 +1,84 @@
+
+.comment-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-form input{
+  width: 100px;
+  height: 27px;
+  margin: 30px 20px 10px 20px;
+  border-radius: 4px;
+  border: 1px solid #bbbbbb;
+}
+
+.comment-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-content textarea {
+  border-radius: 4px;
+  border: 1px solid #bbbbbb;
+  width: 250px;
+  margin: 10px 0 30px 0;
+}
+
+
+.test32::-webkit-scrollbar {
+    display: none;
+}
+
+.comment-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  border: 1px solid #bbbbbb;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.comment-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.comment-image {
+  margin-top: 80px;
+  margin-left: 55px;
+  width: 200px;
+  height: 150px;
+}
+
+
+.comment-btn {
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #222;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+/* Desk Top */
+@media screen and (min-width: 768px) {
+    .comment-content textarea {
+      width: 640px;
+      margin: 10px 20px 30px 20px;
+    }
+    .comment-form input{
+      width: 300px;
+    }
+}

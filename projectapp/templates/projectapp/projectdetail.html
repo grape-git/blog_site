@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="detail-banner">
+              <div class="content-image">
+                <img src="/static/assets/project_content.png" alt="">
+              </div>
+    </section>
+
+    <section class="detail-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+              <div class="detail-content-total">
+                <div class="detail-post">
+                {% if project_detail %}
+                    <div class="detail-content-header">
+                        <h1>{{ project_detail.title }}</h1>
+                        <p>{{ project_detail.created_date }}</p>
+                    </div>
+                    <div class="detail-content-content">
+                        <p>{{ project_detail.content | safe  }}</p>
+                </div>
+                {% endif %}
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% for comment in project_detail.commentpj.all %}
+        {% include 'commentapp/detail.html' with comment=comment %}
+    {% endfor %}
+
+    {% include 'commentapp/createpj.html' with project=project_detail %}
+{% endblock %}
