@@ -73,7 +73,19 @@
 
 
 /* Desk Top */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 764px) {
+    .comment-form input {
+      width:200px;
+    }
+
+    .comment-content textarea{
+      width: 440px;
+    }
+}
+
+
+
+@media screen and (min-width: 964px) {
     .comment-content textarea {
       width: 640px;
       margin: 10px 20px 30px 20px;
