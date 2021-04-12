@@ -20,8 +20,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-# 여기서 DEBUG는 개발중인 상태에서 True로 설정하는 것
-# 배포할 때는 False로 설정정
+#  DEBUG는 개발중인 상태에서 True로 설정하는 것
+# 배포할 때는 False로 설정
 
 ALLOWED_HOSTS = ['*']
 
