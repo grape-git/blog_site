@@ -2,7 +2,7 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo "testing1234"
+RUN echo "testing1254"
 
 RUN git clone https://github.com/grape-git/blog_site.git
 
